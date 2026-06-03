@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* --- BASE RESETS & BACKGROUND --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'League Spartan', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+.background {
+    background-color: #f6f3ef;
+    background-size: cover; 
+    background-position: center; 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f6f3ef;
+    font-family: 'League Spartan', sans-serif;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+/* --- 3. Header Section --- */
+.site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    text-align: center;
+    flex-shrink: 0; 
+}
+
+.logo {
+    font-family: 'League Spartan', sans-serif;
+    color: #0a262e;
+    font-weight: 750;
+    font-size: 50px;
+    letter-spacing: -1px;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    color: #f04a36;
+    font-weight: 600px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.about-btn {
+    font-size: 15px; 
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600px;
+    background-color: #0a262e; 
+    color: #f6f3ef;            
+    text-decoration: none;     
+    display: inline-block; 
+    padding: 5px 10px;
+    border-radius: 15px;       
+    border: 3px; 
+    transition: border-color 0.2s ease-in-out; 
+}
+
+.about-btn:hover {
+    background-color: #f04a36; 
+    color: white;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+/* --- 4. Main Flexbox Columns (The Doors) --- */
+.doors-container {
+    display: flex;
+    justify-content: center;             
+    padding: 0 4rem 2rem 4rem; 
+    flex-grow: 1;            
+}
+
+.door-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+}
+
+.door-heading {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 25px;
+    font-weight: 600px;
+    align-items: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* --- 5. The Images --- */
+.door-image {
+    position: relative;
+    flex-grow: 1; 
+    background-size: contain;
+    background-position: center;
+    overflow: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.door-image::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 38, 46, 0.4);
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.door-image:hover::before {
+    background: rgba(10, 38, 46, 0.6);
+}
+
+.door-image:hover {
+    transform: translateY(-5px);
+}
+
+.view-btn, .photo-credit {
+    position: relative;
+    z-index: 2;
+}
+
+.photo-credit {
+    font-family:'League Spartan', sans-serif;
+    font-weight: 300px;
+    font-size: 15px;
+    position: absolute;
+    bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-align: center;
+    align-items: center;
+    color: #fff;
+}
+
+.view-btn {
+    font-size: 15px; 
+    font-family: 'League Spartan', sans-serif;
+    background-color: #0a262e; 
+    color: #f6f3ef;            
+    text-decoration: none;     
+    display: inline-block; 
+    padding: 5px 10px;
+    border-radius: 15px;       
+    font-weight: 600px;
+    border: 3px; 
+    transition: border-color 0.2s ease-in-out; 
+}
+
+.door-image:hover .view-btn {
+    opacity: 1;
+    background-color: var(--coral);
+    border-color: var(--coral);
+}
+
+.footer {
+    color: #f04a36;
+    text-align: center;
+    padding: 12px 0;
+    font-family: 'league Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}

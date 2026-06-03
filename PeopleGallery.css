@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* --- BASE RESETS --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'League Spartan', sans-serif;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    background-color: #f6f3ef;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* --- HEADER --- */
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    flex-shrink: 0;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.gallery-title {
+    font-family: 'League Spartan', sans-serif;
+    color: #0a262e;
+    font-weight: 750;
+    font-size: 50px;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+.home-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: #f04a36;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease;
+}
+
+.home-icon:hover svg {
+    transform: scale(1.1);
+}
+
+.Logo {
+    font-family: 'League Spartan', sans-serif;
+    color: #0a262e;
+    font-weight: 750;
+    font-size: 50px;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+/* --- GALLERY GRID --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 99%;
+    gap: 2.5rem;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 5rem 1.5rem;
+    flex-grow: 1;
+    min-height: 0;
+    overflow: visible;
+}
+
+/* --- COLUMNS --- */
+.col {
+    position: relative;
+    z-index: 1;
+    transition: z-index 0s 0.4s;
+    height: 100%;
+}
+
+.col:hover {
+    z-index: 100;
+    transition: z-index 0s 0s;
+}
+
+.col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    height: 100%;
+}
+
+.col-center {
+    height: 100%;
+}
+
+.col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    height: 100%;
+}
+
+/* --- PHOTO CARDS --- */
+.photo-card {
+    background: white;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.4s ease;
+}
+
+.col-left .photo-card { transform-origin: center left; 
+    height: 228px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+
+.col-right .photo-card {
+    flex: 1;
+    height: auto;
+}
+
+.col-left   .photo-card { transform-origin: center left;   }
+.col-center .photo-card { transform-origin: center center; }
+.col-right  .photo-card { transform-origin: center right;  }
+
+/* --- IMAGE WRAPPER --- */
+.img-wrapper {
+    flex-grow: 1;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 10px 14px 14px;
+    text-align: center;
+    transform: translateY(100%); 
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.caption h3 {
+    color: #0a262e;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+}
+
+.caption p {
+    color: #0a262e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* --- HOVER STATES --- */
+.photo-card:hover {
+    transform: scale(1.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.photo-card:hover .caption {
+    transform: translateY(0);   
+    opacity: 1;
+}
+
+.photo-card:hover .img-wrapper img {
+    transform: scale(1.05);     
+}
+
+.gallery-grid:has(.photo-card:hover) .col:not(:hover) {
+    opacity: 0.5;
+    filter: grayscale(30%);
+    transition: all 0.4s ease;
+}
+
+/* --- NAV BUTTONS --- */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 0 6px;
+    flex-shrink: 0;
+    z-index: 100;
+}
+
+.nav-btn {
+    background-color: #f04a36;
+    color: #f6f3ef;
+    border: none;
+    padding: 9px 24px;
+    border-radius: 20px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.nav-btn:hover {
+    background-color: #0a262e;
+    transform: translateY(-2px);
+}
+
+.footer {
+    color: #f04a36;
+    text-align: center;
+    padding: 12px 0;
+    font-family: 'league Spartan', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
